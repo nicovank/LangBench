@@ -35,7 +35,9 @@ FetchContent_Declare(
 	GIT_REPOSITORY https://github.com/abseil/abseil-cpp.git
 	GIT_TAG 78be63686ba732b25052be15f8d6dee891c05749 # 20230125.0
 )
-FetchContent_MakeAvailable(abseil-cpp)
+if (LP_ABSL_NODE OR LP_ABSL_FLAT)
+	FetchContent_MakeAvailable(abseil-cpp)
+endif()
 
 add_executable(log_parser log_parser.cpp)
 target_link_libraries(log_parser Threads::Threads)

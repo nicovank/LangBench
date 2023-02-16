@@ -33,7 +33,7 @@ include(FetchContent)
 FetchContent_Declare(
 	abseil-cpp
 	GIT_REPOSITORY https://github.com/abseil/abseil-cpp.git
-	GIT_TAG 78be63686ba732b25052be15f8d6dee891c05749 # version 20230125.0
+	GIT_TAG 78be63686ba732b25052be15f8d6dee891c05749 # 20230125.0
 )
 FetchContent_MakeAvailable(abseil-cpp)
 

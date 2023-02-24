@@ -19,6 +19,10 @@ using Regex = std::regex;
 #include <boost/regex.hpp>
 using Regex = boost::regex;
 #define REGEX_SEARCH boost::regex_search
+#elif defined(LP_REGEX_RE2)
+#include <re2/re2.h>
+using Regex = re2::RE2;
+#define REGEX_SEARCH(pattern, r) RE2::PartialMatch(pattern, r, nullptr, nullptr)
 #endif
 
 long time_diff(struct timespec start, struct timespec end) {
@@ -492,6 +496,8 @@ int main(int argc, char* argv[]) {
 	printf("[config] regex std.\n");
 #elif defined(LP_REGEX_BOOST)
 	printf("[config] regex boost.\n");
+#elif defined(LP_REGEX_RE2)
+	printf("[config] regex re2.\n");
 #else
 	printf("[config] badness.\n");
 	return 1;

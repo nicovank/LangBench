@@ -1,7 +1,5 @@
 .PHONY: all clean
 
-CXX = $(LANGBENCH)/prefix/bin/g++
-
 all: client.o client-debug.o read.o
 
 client.o: client.cpp

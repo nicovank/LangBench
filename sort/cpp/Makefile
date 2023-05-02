@@ -1,7 +1,5 @@
 .PHONY: all clean
 
-CXX = $(LANGBENCH)/prefix/bin/g++
-
 all: sort-o2.o sort-o3.o
 
 sort-o2.o: sort.c

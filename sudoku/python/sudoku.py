@@ -2,27 +2,19 @@
 
 from typing import List
 import sys
-import cProfile
-import dis
-from functools import reduce
 
 def print_board(board: List[List[int]]) -> None:
+	line = ""
 	for i in range(9):
-		line = ""
 		for j in range(9):
 			line += str(board[i][j])
-		print(line)
+	print(line)
 
 def partial_verify(board: List[List[int]], x: int, y: int) -> bool:
 	base_x: int = (x // 3) * 3
 	base_y: int = (y // 3) * 3
 	for i in range(9):
-		cond_1: bool = (i != y)
-		xi: int = board[x][i]
-		xy: int = board[x][y]
-		cond_2: bool = (xi == xy)
-		if cond_1 and cond_2:
-		#if (i != y) and (board[x][i] == board[x][y]):
+		if (i != y) and (board[x][i] == board[x][y]):
 			return False
 		if (i != x) and (board[i][y] == board[x][y]):
 			return False
@@ -89,24 +81,12 @@ def process(fname) -> None:
 			for i in range(9):
 				board.append([ 0 ] * 9)
 			read_line(line, board)
-			#print("===")
-			#print_board(board)
-			#print()
 			solve(board, 0, 0)
-			#print_board(board)
-			#print()
+			print_board(board)
 			assert(verify(board))
-			#cProfile.runctx("verify(board)", globals(), locals())
 
 def main(args):
-	#import analyze_dxp
 	process(args[0])
-	#a = analyze_dxp.common_instructions(sys.getdxp())
-	#total = reduce(lambda a, x: a + x[2], a, 0)
-	#for x in a:
-	#	print(str(x) + ", " + str(x[2] / total))
-	#cProfile.run("process('" + args[0] + "')")
-	#dis.dis(solve)
 
 if __name__ == '__main__':
 	main(sys.argv[1:])

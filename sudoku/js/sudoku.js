@@ -54,18 +54,18 @@ function solve(board, x, y) {
 
 function verify(board) {
 	for (let i = 0; i < 9; i++) {
-		let row_check = new Array(10);
-		let col_check = new Array(10);
+		let row_check = new Int8Array(10);
+		let col_check = new Int8Array(10);
 		for (let j = 0; j < 9; j++) {
 			if (board[i][j] == 0) {
 				return false;
 			}
-			if (row_check[board[i][j]]) {
+			if (row_check[board[i][j]] != 0) {
 				return false;
 			}
 			row_check[board[i][j]] = 1;
 
-			if (col_check[board[j][i]]) {
+			if (col_check[board[j][i]] != 0) {
 				return false;
 			}
 			col_check[board[j][i]] = 1;
@@ -74,11 +74,11 @@ function verify(board) {
 
 	for (let i = 0; i < 9; i += 3) {
 		for (let j = 0; j < 9; j += 3) {
-			let check = new Array(10);
+			let check = new Int8Array(10);
 			for (let k = 0; k < 9; k++) {
 				let x = i + Math.floor(k / 3);
 				let y = j + (k % 3);
-				if (check[board[x][y]]) {
+				if (check[board[x][y]] != 0) {
 					return false;
 				}
 				check[board[x][y]] = 1;
@@ -108,9 +108,11 @@ function read_file(fname, callback) {
 	});
 	rl.on("line", function(line) {
 		assert(line.length == 81);
-		let board = new Array(9);
+		//let board = new Array(9);
+		let board = [];
 		for (let i = 0; i < 9; i++) {
-			board[i] = new Array(9);
+			//board[i] = new Int8Array(9);
+			board.push(new Int8Array(9));
 		}
 		read_line(line, board);
 		callback(board);

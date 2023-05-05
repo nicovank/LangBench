@@ -4,4 +4,4 @@ compile:
 	$(CXX) $(CXXFLAGS) -o sudoku.o sudoku.cpp
 
 run:
-	./sudoku ../input-64.txt
+	./sudoku.o ../input-64.txt

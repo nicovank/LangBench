@@ -4,13 +4,13 @@ const fs = require("fs");
 const readline = require("readline");
 
 function print_board(board) {
+	let line = "";
 	for (let i = 0; i < 9; i++) {
-		let row = "";
 		for (let j = 0; j < 9; j++) {
-			row += board[i][j];
+			line += board[i][j];
 		}
-		console.log(row);
 	}
+	console.log(line);
 }
 
 function partial_verify(board, x, y) {
@@ -121,12 +121,8 @@ function read_file(fname, callback) {
 
 function main(args) {
 	read_file(args[0], function(board) {
-		//console.log("===");
-		//print_board(board);
-		//console.log();
 		solve(board, 0, 0);
-		//print_board(board);
-		//console.log();
+		print_board(board);
 		assert(verify(board));
 	});
 }

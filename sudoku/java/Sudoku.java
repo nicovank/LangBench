@@ -20,8 +20,8 @@ public class Sudoku {
 				for (int j = 0; j < 9; j++) {
 					System.out.print(this.board[i][j]);
 				}
-				System.out.print("\n");
 			}
+			System.out.println();
 		}
 
 		private boolean partial_verify(int x, int y) {
@@ -122,12 +122,8 @@ public class Sudoku {
 					break;
 				}
 				sb.read_line(line);
-				//System.out.print("===\n");
-				//sb.print_board();
-				//System.out.println();
 				sb.solve(0, 0);
-				//sb.print_board();
-				//System.out.println();
+				sb.print_board();
 				if (!sb.verify()) {
 					throw new RuntimeException("badness");
 				}

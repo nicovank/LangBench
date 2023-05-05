@@ -12,8 +12,9 @@ void print_board(SudokuBoard* board) {
 		for (int j = 0; j < 9; j++) {
 			std::cout << (*board)[i][j];
 		}
-		std::cout << std::endl;
 	}
+	
+	std::cout << std::endl;
 }
 
 bool partial_verify(SudokuBoard* board, int x, int y) {
@@ -116,12 +117,8 @@ void process(char* fname) {
 		if (!read_line(&f, &board)) {
 			break;
 		}
-		//std::cout << "===" << std::endl;
-		//print_board(&board);
-		//std::cout << std::endl;
 		solve(&board, 0, 0);
-		//print_board(&board);
-		//std::cout << std::endl;
+		print_board(&board);
 		assert(verify(&board));
 	}
 }

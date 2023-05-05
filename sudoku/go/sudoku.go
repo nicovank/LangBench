@@ -13,14 +13,12 @@ func assert(cond bool) {
 func print_board(board *[9][9]int) {
 	var str []byte = make([]byte, 0, 90)
 	var ascii_zero byte = "0"[0]
-	var ascii_nl byte = "\n"[0]
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			str = append(str, byte(board[i][j]) + ascii_zero)
 		}
-		str = append(str, ascii_nl)
 	}
-	fmt.Printf("%s", string(str))
+	fmt.Printf("%s\n", string(str))
 }
 
 func partial_verify(board *[9][9]int, x int, y int) bool {
@@ -118,9 +116,8 @@ func process(path string) {
 	for scanner.Scan() {
 		var board [9][9]int
 		read_line(scanner.Text(), &board)
-		//print_board(&board)
 		solve(&board, 0, 0)
-		//print_board(&board)
+		print_board(&board)
 		assert(verify(&board))
 	}
 }

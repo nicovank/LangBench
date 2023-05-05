@@ -1,11 +1,9 @@
-.PHONY: all clean
+ifndef GO
+GO := go
+endif
 
-GO = $(LANGBENCH)/runtimes/go/go-1.14.1-vanilla/go
+compile:
+	$(GO) build -o sudoku.o sudoku.go
 
-all: sudoku.o
-
-sudoku.o: sudoku.go
-	$(GO) build -o sudoku.o
-
-clean:
-	rm sudoku.o
+run:
+	./sudoku.o ../input-64.txt

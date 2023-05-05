@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.22)
 
 #if(NOT CMAKE_BUILD_TYPE)
 #	set(CMAKE_BUILD_TYPE Release)
@@ -26,7 +26,16 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 
 # Process Abseil's CMake build system
-add_subdirectory(abseil-cpp)
+include(FetchContent)
+FetchContent_Declare(
+	abseil-cpp
+	GIT_REPOSITORY https://github.com/abseil/abseil-cpp.git
+	GIT_TAG 78be63686ba732b25052be15f8d6dee891c05749 # 20230125.0
+)
+
+if(GRAPH_ABSL_NODE OR GRAPH_ABSL_FLAT)
+	FetchContent_MakeAvailable(abseil-cpp)
+endif()
 
 #add_subdirectory(hopscotch-map)
 #add_subdirectory(robin-map)

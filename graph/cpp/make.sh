@@ -2,9 +2,6 @@
 
 set -xe
 
-export CC="${LANGBENCH}/prefix/bin/gcc"
-export CXX="${LANGBENCH}/prefix/bin/g++"
-
 OPTIMIZATION_LEVELS=(o2 o3)
 TRAVERSAL_TYPES=(iterative recursive)
 CONTAINER_TYPES=(stl_unordered stl_ordered absl_node absl_flat)

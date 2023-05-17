@@ -3,4 +3,4 @@ compile:
 	node-gyp build
 
 run:
-	$(NODE) graph_recursive.js ../com-youtube.ungraph.txt
+	$(NODE) --stack-size=65536 graph_recursive.js ../com-youtube.ungraph.txt

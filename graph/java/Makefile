@@ -1,9 +1,5 @@
-.PHONY: all clean
+compile:
+	$(JAVAC) GraphRecursive.java
 
-JAVAC = $(LANGBENCH)/runtimes/openjdk/jdk-vanilla-server/bin/javac
-
-all:
-	find . -name '*.java' | xargs $(JAVAC)
-
-clean:
-	rm *.class
+run:
+	$(JAVA) GraphRecursive ../com-youtube.ungraph.txt

@@ -469,7 +469,7 @@ int main(int argc, char *argv[]) {
 	printf("[config] -O3\n");
 #else
 	printf("[config] badness.\n");
-	return 1;
+	// return 1;
 #endif
 
 #if defined(GRAPH_ITERATIVE)

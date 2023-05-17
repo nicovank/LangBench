@@ -463,15 +463,6 @@ UniquePtr<Graph> Graph::from_file(const char *fname) {
 }
 
 int main(int argc, char *argv[]) {
-#if defined(GRAPH_O2)
-	printf("[config] -O2\n");
-#elif defined(GRAPH_O3)
-	printf("[config] -O3\n");
-#else
-	printf("[config] badness.\n");
-	return 1;
-#endif
-
 #if defined(GRAPH_ITERATIVE)
 	printf("[config] iterative.\n");
 #elif defined(GRAPH_RECURSIVE)

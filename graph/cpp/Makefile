@@ -1,8 +1,9 @@
-.PHONY: all clean
+-include ../../Makefile.defaults
 
-all:
-	./make.sh
+compile:
+	cmake -B build --fresh -DCMAKE_BUILD_TYPE=Release -DGRAPH_RECURSIVE=ON -DGRAPH_ABSL_FLAT=ON
+	cmake --build build
+	cp build/graph graph.o
 
-clean:
-	rm -f graph_*-o2.o
-	rm -f graph_*-o3.o
+run:
+	graph.o ../com-youtube.ungraph.txt

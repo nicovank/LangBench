@@ -1,3 +1,7 @@
+ifndef NODE
+NODE := node
+endif
+
 compile:
 
 run:

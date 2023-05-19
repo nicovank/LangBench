@@ -1,3 +1,11 @@
+ifndef JAVAC
+JAVAC := javac
+endif
+
+ifndef JAVA
+JAVA := java
+endif
+
 compile:
 	$(JAVAC) Sort.java
 

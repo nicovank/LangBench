@@ -1,9 +1,13 @@
-.PHONY: all clean
+ifndef JAVAC
+JAVAC := javac
+endif
 
-JAVAC = $(LANGBENCH)/runtimes/openjdk/jdk-vanilla-server/bin/javac
+ifndef JAVA
+JAVA := java
+endif
 
-all:
-	$(JAVAC) *.java
+compile:
+	$(JAVAC) Sort.java
 
-clean:
-	rm *.class
+run:
+	$(JAVA) -XX:+UseParallelGC -Xms8192m -Xmx8192m Sort

@@ -6,4 +6,4 @@ compile:
 	cp build/graph graph.o
 
 run:
-	graph.o ../com-youtube.ungraph.txt
+	./graph.o ../com-youtube.ungraph.txt

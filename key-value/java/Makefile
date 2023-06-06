@@ -1,9 +1,15 @@
-.PHONY: all clean
+ifndef JAVAC
+JAVAC := javac
+endif
 
-JAVAC = $(LANGBENCH)/runtimes/openjdk/jdk-vanilla-server/bin/javac
+ifndef JAVA
+JAVA := java
+endif
 
-all:
-	$(JAVAC) *.java
+compile:
+	$(JAVAC) KeyValue.java HashMap.java
 
-clean:
-	rm *.class
+run:
+	screen -dmS key_value $(JAVA) KeyValue 127.0.0.1 51234 24576 1024
+	$(REDIS_BENCHMARK) -c $(JOBS) -n 2000000 -d 64 -r 500000 -t set,get -h 127.0.0.1 -p 51234
+	screen -S key_value -X stuff '^C'

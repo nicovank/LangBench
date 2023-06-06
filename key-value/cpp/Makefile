@@ -1,28 +1,9 @@
-.PHONY: all clean
+-include ../../Makefile.defaults
 
-all: key_value-o2.o key_value-o3.o key_value-debug.o key_value-o0.o micro_hashmap.o
+compile:
+	$(CXX) -std=c++17 -pthread $(CXXFLAGS) -o key_value.o key_value.cpp hashmap.cpp
 
-key_value-o2.o: key_value.cpp hashmap.cpp
-	$(CXX) -std=c++17 -O2 -pthread -o $@ $^
-
-key_value-o3.o: key_value.cpp hashmap.cpp
-	$(CXX) -std=c++17 -O3 -pthread -o $@ $^
-
-key_value-debug.o: key_value.cpp hashmap.cpp
-	$(CXX) -g -std=c++17 -O2 -pthread -o $@ $^
-
-key_value-o0.o: key_value.cpp hashmap.cpp
-	$(CXX) -g -std=c++17 -O0 -pthread -o $@ $^
-
-key_value-dummyptr.o: key_value.cpp hashmap2.cpp
-	$(CXX) -g -std=c++17 -O2 -pthread -o $@ $^
-
-micro_hashmap.o: micro_hashmap.cpp
-	$(CXX) -std=c++17 -O2 -pthread -o $@ $^
-
-clean:
-	rm key_value-o2.o
-	rm key_value-o3.o
-	rm key_value-debug.o
-	rm key_value-o0.o
-	rm micro_hashmap.o
+run:
+	screen -dmS key_value ./key_value.o 127.0.0.1 51234 24576 1024
+	$(REDIS_BENCHMARK) -c $(JOBS) -n 2000000 -d 64 -r 500000 -t set,get -h 127.0.0.1 -p 51234
+	screen -S key_value -X stuff '^C'

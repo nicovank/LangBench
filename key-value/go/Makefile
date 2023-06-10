@@ -7,7 +7,7 @@ JOBS := 8
 endif
 
 compile:
-	$(GO) build -o key_value.o
+	$(GO) build -o key_value.o key_value.go hashmap.go
 
 run:
 	screen -dmS key_value ./key_value.o 127.0.0.1 51234 24576 1024

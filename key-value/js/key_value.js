@@ -54,6 +54,7 @@ function process_command(arr, socket, map) {
 		ret = "+OK\r\n";
 	} else {
 		console.log("[info] unknown command", arr);
+		socket.end();
 		return;
 	}
 	//console.log("[trace] command", arr, "returning", ret);

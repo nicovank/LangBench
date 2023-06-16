@@ -63,6 +63,7 @@ public class KeyValue {
 						break;
 					default:
 						System.out.print("[error] unknown client message: '" + String.join(", ", parts) + "'\n");
+						out.flush();
 						continue;
 					}
 					out.print(ret);

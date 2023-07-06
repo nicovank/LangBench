@@ -1,6 +1,9 @@
+ifndef GO
+GO := go
+endif
+
 compile:
-	cd recursive
-	$(GO) build -o ../graph.o
+	$(GO) build -o graph.o recursive/graph_recursive.go
 
 run:
 	./graph.o ../com-youtube.ungraph.txt

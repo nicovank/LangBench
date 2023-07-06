@@ -1,3 +1,7 @@
+ifndef PYTHON
+PYTHON := python3
+endif
+
 compile:
 
 run:

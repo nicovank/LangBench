@@ -5,4 +5,4 @@ endif
 compile:
 
 run:
-	$(PYTHON) sudoku.py ../input-64.txt
+	$(PYTHON) sudoku.py ../../data/sudoku/input-64.txt

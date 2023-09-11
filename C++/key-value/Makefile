@@ -1,4 +1,4 @@
--include ../../Makefile.defaults
+-include ../Makefile.defaults
 
 ifndef JOBS
 JOBS := 8

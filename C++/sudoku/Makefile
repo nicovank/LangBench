@@ -1,4 +1,4 @@
--include ../../Makefile.defaults
+-include ../Makefile.defaults
 
 compile:
 	$(CXX) $(CXXFLAGS) -o sudoku.o sudoku.cpp

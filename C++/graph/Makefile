@@ -1,4 +1,4 @@
--include ../../Makefile.defaults
+-include ../Makefile.defaults
 
 compile:
 	cmake -B build --fresh -DCMAKE_BUILD_TYPE=Release -DGRAPH_RECURSIVE=ON -DGRAPH_ABSL_FLAT=ON

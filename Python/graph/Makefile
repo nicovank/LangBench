@@ -5,4 +5,4 @@ endif
 compile:
 
 run:
-	$(PYTHON) -OO graph_recursive.py ../com-youtube.ungraph.txt
+	$(PYTHON) -OO graph_recursive.py ../../data/graph/com-youtube.ungraph.txt

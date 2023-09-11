@@ -3,8 +3,9 @@ NODE := node
 endif
 
 compile:
-	node-gyp configure
-	node-gyp build
+	npm install
+	npx node-gyp configure
+	npx node-gyp build
 
 run:
-	$(NODE) --stack-size=65536 graph_recursive.js ../com-youtube.ungraph.txt
+	$(NODE) --stack-size=65536 graph_recursive.js ../../data/graph/com-youtube.ungraph.txt

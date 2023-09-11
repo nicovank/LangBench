@@ -10,4 +10,4 @@ compile:
 	$(JAVAC) GraphRecursive.java
 
 run:
-	$(JAVA) -Xss128m GraphRecursive ../com-youtube.ungraph.txt
+	$(JAVA) -Xss128m GraphRecursive ../../data/graph/com-youtube.ungraph.txt

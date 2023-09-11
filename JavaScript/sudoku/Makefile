@@ -5,4 +5,4 @@ endif
 compile:
 
 run:
-	$(NODE) sudoku.js ../input-64.txt
+	$(NODE) sudoku.js ../../data/sudoku/input-64.txt

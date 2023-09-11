@@ -1,9 +1,9 @@
 -include ../Makefile.defaults
 
 compile:
-	cmake -B build --fresh -DCMAKE_BUILD_TYPE=Release -DGRAPH_RECURSIVE=ON -DGRAPH_ABSL_FLAT=ON
+	rm -rf build
+	cmake . -B build -DCMAKE_BUILD_TYPE=Release -DGRAPH_RECURSIVE=ON -DGRAPH_ABSL_FLAT=ON
 	cmake --build build
-	cp build/graph graph.o
 
 run:
-	./graph.o ../com-youtube.ungraph.txt
+	./build/graph ../../data/graph/com-youtube.ungraph.txt

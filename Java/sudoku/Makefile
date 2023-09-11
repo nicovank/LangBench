@@ -10,4 +10,4 @@ compile:
 	$(JAVAC) *.java
 
 run:
-	$(JAVA) Sudoku ../input-64.txt
+	$(JAVA) Sudoku ../../data/sudoku/input-64.txt

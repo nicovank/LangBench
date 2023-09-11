@@ -6,4 +6,4 @@ compile:
 	$(GO) build -o graph.o recursive/graph_recursive.go
 
 run:
-	./graph.o ../com-youtube.ungraph.txt
+	./graph.o ../../data/graph/com-youtube.ungraph.txt

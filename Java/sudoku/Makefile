@@ -11,3 +11,9 @@ compile:
 
 run:
 	$(JAVA) Sudoku ../../data/sudoku/input-64.txt
+
+measure:
+ifndef JSON
+	$(error JSON is not defined)
+endif
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(JAVA) Sudoku ../../data/sudoku/input-64.txt

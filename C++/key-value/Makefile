@@ -4,8 +4,11 @@ ifndef JOBS
 JOBS := 8
 endif
 
-compile: 
+compile:
 	$(CXX) -std=c++17 -pthread $(CXXFLAGS) -o key_value.o key_value.cpp hashmap.cpp
+
+run-server:
+	./key_value.o 127.0.0.1 51234 24576 1024
 
 run:
 	screen -dmS key_value ./key_value.o 127.0.0.1 51234 24576 1024

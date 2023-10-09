@@ -9,3 +9,9 @@ compile:
 
 run:
 	$(NODE) --stack-size=65536 graph_recursive.js ../../data/graph/com-youtube.ungraph.txt
+
+measure:
+ifndef JSON
+	$(error JSON is not defined)
+endif
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(NODE) --stack-size=65536 graph_recursive.js ../../data/graph/com-youtube.ungraph.txt

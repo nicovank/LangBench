@@ -7,3 +7,9 @@ compile:
 
 run:
 	./build/graph ../../data/graph/com-youtube.ungraph.txt
+
+measure:
+ifndef JSON
+	$(error JSON is not defined)
+endif
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" ./build/graph ../../data/graph/com-youtube.ungraph.txt

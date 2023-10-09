@@ -71,6 +71,8 @@ func main() {
 	assert(err == nil)
 	defer server.Close()
 
+	fmt.Printf("[info] initialized.\n")
+
 	var hashmap *HashMap = NewHashMap(int64(size) * 1024, rows)
 	for {
 		conn, err := server.Accept()

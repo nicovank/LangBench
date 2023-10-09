@@ -88,7 +88,9 @@ public class KeyValue {
 		*/
 		try {
 			ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[1]), 1025, InetAddress.getByName(args[0]));
-			//ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]), 8, InetAddress.getLoopbackAddress());
+
+			System.out.print("[info] initialized.\n");
+
 			HashMap map = new HashMap(Long.parseLong(args[2]) * 1024, Integer.parseInt(args[3]));
 
 			while (true) {

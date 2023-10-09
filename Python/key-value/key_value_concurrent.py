@@ -80,6 +80,7 @@ def main(args: List[str]) -> None:
 		#s.bind(("127.0.0.1", int(args[0])))
 		s.bind((args[0], int(args[1])))
 		s.listen(8)
+		print("[info] initialized.")
 		while True:
 			conn, addr = s.accept()
 			c: Client = Client(hashmap, conn)

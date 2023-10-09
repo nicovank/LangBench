@@ -186,6 +186,8 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
+	fprintf(stderr, "[info] initialized.\n");
+
 	HashMap map(static_cast<unsigned long>(size) * 1024, rows);
 	while (true) {
 		struct sockaddr_in client;

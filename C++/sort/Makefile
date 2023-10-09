@@ -5,3 +5,9 @@ compile:
 
 run:
 	./sort.o
+
+measure:
+ifndef JSON
+	$(error JSON is not defined)
+endif
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" ./sort.o

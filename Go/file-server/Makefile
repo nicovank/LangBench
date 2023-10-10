@@ -1,14 +1,9 @@
-.PHONY: all clean
+ifndef GO
+GO := go
+endif
 
-GO = $(LANGBENCH)/runtimes/go/go-1.14.1-vanilla/go
+compile:
+	$(GO) build -o file_server.o default/file_server.go
 
-all: file_server.o file_server_sendfile.o
-
-file_server.o: default/file_server.go
-	cd default && $(GO) build -o ../$@
-
-file_server_sendfile.o: sendfile/file_server_sendfile.go
-	cd sendfile && $(GO) build -o ../$@
-
-clean:
-	rm *.o
+run-server:
+	./file_server.o 0.0.0.0 8080 ../../data/file-server

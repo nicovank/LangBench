@@ -1,9 +1,13 @@
-.PHONY: all clean
+ifndef JAVAC
+JAVAC := javac
+endif
 
-JAVAC = $(LANGBENCH)/runtimes/openjdk/jdk-vanilla-server/bin/javac
+ifndef JAVA
+JAVA := java
+endif
 
-all:
-	$(JAVAC) *.java
+compile:
+	$(JAVAC) FileServer.java
 
-clean:
-	rm *.class
+run-server:
+	$(JAVA) FileServer 127.0.0.1 51234 24576 1024

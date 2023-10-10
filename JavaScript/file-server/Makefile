@@ -5,4 +5,4 @@ endif
 compile:
 
 run-server:
-	$(NODE) file_server.js 127.0.0.1 51234 24576 1024
+	$(NODE) file_server.js 0.0.0.0 8080 ../../data/file-server

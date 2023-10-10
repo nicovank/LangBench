@@ -5,4 +5,4 @@ endif
 compile:
 
 run-server:
-	$(PYTHON) file_server.py 127.0.0.1 51234 24576 1024
+	$(PYTHON) file_server.py 0.0.0.0 8080 ../../data/file-server

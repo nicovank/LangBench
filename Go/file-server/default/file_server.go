@@ -77,6 +77,8 @@ func main() {
 	assert(err == nil)
 	defer server.Close()
 
+	fmt.Printf("[info] initialized.\n")
+
 	for {
 		conn, err := server.Accept()
 		assert(err == nil)

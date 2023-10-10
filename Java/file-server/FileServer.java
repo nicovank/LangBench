@@ -152,7 +152,8 @@ public class FileServer {
 	public static void main(String[] args) {
 		try {
 			ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[1]), 1025, InetAddress.getByName(args[0]));
-			//ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]), 8, InetAddress.getLoopbackAddress());
+
+			System.out.print("[info] initialized.\n");
 
 			while (true) {
 				Socket conn = serverSocket.accept();

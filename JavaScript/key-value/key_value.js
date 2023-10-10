@@ -99,9 +99,7 @@ function main(args) {
 			}
 		});
 
-	}).listen(parseInt(args[1], 10), args[0]);
-
-	console.log("[info] initialized.");
+	}).listen(parseInt(args[1], 10), args[0], () => { console.log("[info] initialized."); });
 }
 
 if (!module.parent) {

@@ -36,10 +36,13 @@ class Client:
 	'''
 
 	def socket_readline(self) -> str:
-		line: str = self.file.readline()[:-2]
-		if len(line) == 0:
+		try:
+			line: str = self.file.readline()[:-2]
+			if len(line) == 0:
+				return None
+			return line
+		except ConnectionResetError:
 			return None
-		return line
 
 	def handle_connection(self) -> None:
 		while True:
@@ -69,7 +72,7 @@ class Client:
 				ret = b"+OK\r\n"
 			else:
 				print("[error] unknown client message: " + str(cmd))
-				return
+				ret = b"\r\n"
 			self.sock.send(ret)
 			# print("[info] cmd: {} ret: {}".format(" ".join([str(x) for x in cmd]), ret))
 

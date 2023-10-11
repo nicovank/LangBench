@@ -10,10 +10,10 @@ compile:
 	$(JAVAC) GraphRecursive.java
 
 run:
-	$(JAVA) -Xss128m GraphRecursive ../../data/graph/com-youtube.ungraph.txt
+	$(JAVA) -Xss128m GraphRecursive ../../benchmark-data/graph/com-youtube.ungraph.txt
 
 measure:
 ifndef JSON
 	$(error JSON is not defined)
 endif
-	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(JAVA) -Xss128m GraphRecursive ../../data/graph/com-youtube.ungraph.txt
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(JAVA) -Xss128m GraphRecursive ../../benchmark-data/graph/com-youtube.ungraph.txt

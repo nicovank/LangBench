@@ -8,10 +8,10 @@ compile:
 	npx node-gyp build
 
 run:
-	$(NODE) --stack-size=65536 graph_recursive.js ../../data/graph/com-youtube.ungraph.txt
+	$(NODE) --stack-size=65536 graph_recursive.js ../../benchmark-data/graph/com-youtube.ungraph.txt
 
 measure:
 ifndef JSON
 	$(error JSON is not defined)
 endif
-	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(NODE) --stack-size=65536 graph_recursive.js ../../data/graph/com-youtube.ungraph.txt
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" $(NODE) --stack-size=65536 graph_recursive.js ../../benchmark-data/graph/com-youtube.ungraph.txt

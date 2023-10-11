@@ -6,10 +6,10 @@ compile:
 	cmake --build build
 
 run:
-	./build/graph ../../data/graph/com-youtube.ungraph.txt
+	./build/graph ../../benchmark-data/graph/com-youtube.ungraph.txt
 
 measure:
 ifndef JSON
 	$(error JSON is not defined)
 endif
-	sudo ../../scripts/RAPL/build/rapl "$(JSON)" ./build/graph ../../data/graph/com-youtube.ungraph.txt
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" ./build/graph ../../benchmark-data/graph/com-youtube.ungraph.txt

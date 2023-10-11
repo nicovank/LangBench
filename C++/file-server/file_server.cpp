@@ -192,6 +192,8 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
+	fprintf(stderr, "[info] initialized.\n");
+
 	while (true) {
 		struct sockaddr_in client;
 		int len = sizeof(client);

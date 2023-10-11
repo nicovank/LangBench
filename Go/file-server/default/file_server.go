@@ -2,7 +2,7 @@ package main
 
 import "os"
 import "net"
-//import "fmt"
+import "fmt"
 import "bufio"
 import "strings"
 import "strconv"
@@ -76,6 +76,8 @@ func main() {
 	server, err := net.Listen("tcp", os.Args[1] + ":" + os.Args[2])
 	assert(err == nil)
 	defer server.Close()
+
+	fmt.Printf("[info] initialized.\n")
 
 	for {
 		conn, err := server.Accept()

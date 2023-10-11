@@ -71,8 +71,7 @@ function main(args) {
 		rl.once("line", (line) => {
 			handle_client(socket, line, args[2]);
 		});
-	}).listen(parseInt(args[1], 10), args[0]);
-	//}).listen(parseInt(args[0], 10), "127.0.0.1");
+	}).listen(parseInt(args[1], 10), args[0], () => { console.log("[info] initialized."); });
 }
 
 if (!module.parent) {

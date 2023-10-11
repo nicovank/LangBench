@@ -65,6 +65,7 @@ def main(args: List[str]) -> None:
 		#s.bind(("127.0.0.1", int(args[0])))
 		s.bind((args[0], int(args[1])))
 		s.listen(1025)
+		print("[info] initialized.")
 		while True:
 			conn: socket.socket
 			addr: Tuple[str, int]

@@ -1,14 +1,24 @@
-.PHONY: all clean
+ifndef GO
+GO := go
+endif
 
-GO = $(LANGBENCH)/runtimes/go/go-1.14.1-vanilla/go
+compile:
+	$(GO) build -o file_server.o default/file_server.go
 
-all: file_server.o file_server_sendfile.o
+run-server:
+	./file_server.o 0.0.0.0 8080 ../../data/file-server
 
-file_server.o: default/file_server.go
-	cd default && $(GO) build -o ../$@
+run:
+	python3 ../../data/run-server-client.py \
+		--server-command "./file_server.o 0.0.0.0 8080 ../../data/file-server" \
+		--client-command "../../data/file-server/client/client.o localhost 8080 1 ../../data/file-server/filenames.txt" \
+		--ready-matcher ".* initialized"
 
-file_server_sendfile.o: sendfile/file_server_sendfile.go
-	cd sendfile && $(GO) build -o ../$@
-
-clean:
-	rm *.o
+measure:
+ifndef JSON
+	$(error JSON is not defined)
+endif
+	sudo ../../scripts/RAPL/build/rapl "$(JSON)" python3 ../../data/run-server-client.py '\
+		--server-command "./file_server.o 0.0.0.0 8080 ../../data/file-server" \
+		--client-command "../../data/file-server/client/client.o localhost 8080 1 ../../data/file-server/filenames.txt" \
+		--ready-matcher ".* initialized"'

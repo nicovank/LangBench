@@ -28,7 +28,7 @@ Both repositories should be cloned in the same parent directory.
 ```
 
 ```bash
-% sudo docker run -it --privileged -v `pwd`/data/`hostname -s`/docker-default:/root/data energy-languages \
+% sudo docker run -it --privileged -v `pwd`/data/`hostname -s`/docker-default:/root/data langbench \
     --languages C++ Go Java JavaScript Python \
     --warmup 3 \
     --iterations 21 \

@@ -12,6 +12,7 @@ def main(args):
         text=True,
         stderr=subprocess.STDOUT,
         stdout=subprocess.PIPE,
+        preexec_fn=os.setsid
     )
 
     matcher = re.compile(args.ready_matcher)
@@ -34,7 +35,8 @@ def main(args):
 
     client.communicate()
     assert client.returncode == 0
-    os.kill(server.pid, signal.SIGINT)
+    os.killpg(os.getpgid(server.pid), signal.SIGINT)
+    server.wait()
 
 
 if __name__ == "__main__":

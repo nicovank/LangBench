@@ -33,7 +33,8 @@ def main(args):
     )
 
     client.communicate()
-    server.kill()
+    assert client.returncode == 0
+    os.kill(server.pid, signal.SIGINT)
 
 
 if __name__ == "__main__":

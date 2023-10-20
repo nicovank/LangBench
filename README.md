@@ -1,10 +1,9 @@
 # LangBench
 
-TODO.
+The main repository for this project lives at [`nicovank/Energy-Languages`](https://github.com/nicovank/Energy-Languages).
+Any issues should be reported on [that repository's issue section](https://github.com/nicovank/Energy-Languages/issues).
 
 ## Documentation
-
-The main repository for this project lives at [`nicovank/Energy-Languages`](https://github.com/nicovank/Energy-Languages).
 
 Both repositories should be cloned in the same parent directory.
 ```
